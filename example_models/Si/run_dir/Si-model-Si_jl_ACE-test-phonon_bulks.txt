@@ -1,0 +1,74 @@
+
+###### START RUN Fri Oct 18 12:32:49 2024 ######
+Model Si_jl_ACE, Test phonon_bulks
+Test run at 2024-10-18 12:32
+
+model file: /home/eng/phrffk/testing-framework/example_models/Si/run_dir/../models/Si_jl_ACE/model.py
+============================================================
+from ase.calculators.lammpslib import LAMMPSlib
+import os
+import glob
+
+
+
+model_dir = os.path.dirname(os.path.realpath(__file__))
+name = '0ce218cb3e'
+cmds = ['pair_style hybrid/overlay pace table spline 5000',
+        f'pair_coeff * * pace {model_dir}/{name}.yace Si', 
+        f'pair_coeff 1 1 table {model_dir}/{name}_pairpot.table Si_Si']
+
+calculator = LAMMPSlib(lmpcmds=cmds, keep_alive=True, log_file='lammps_output.log')
+
+no_checkpoint = True
+============================================================
+test file: /home/eng/phrffk/testing-framework/tests/Si/phonon_bulks/test.py
+============================================================
+from phonons import *
+
+properties = do_phonons(['bulk_Si_diamond'], n_supercell=6, band_paths=['GXKGL'])
+============================================================
+Traceback (most recent call last):
+  File "/home/eng/phrffk/testing-framework/scripts/run-model-test.py", line 139, in <module>
+    import test  # import and run the current test
+  File "/home/eng/phrffk/testing-framework/tests/Si/phonon_bulks/test.py", line 1, in <module>
+    from phonons import *
+  File "/home/eng/phrffk/testing-framework/scripts/../share/phonons.py", line 4, in <module>
+    import phonopy
+ModuleNotFoundError: No module named 'phonopy'
+
+###### START RUN Fri Oct 18 12:40:05 2024 ######
+Model Si_jl_ACE, Test phonon_bulks
+Test run at 2024-10-18 12:40
+
+model file: /home/eng/phrffk/testing-framework/example_models/Si/run_dir/../models/Si_jl_ACE/model.py
+============================================================
+from ase.calculators.lammpslib import LAMMPSlib
+import os
+import glob
+
+
+
+model_dir = os.path.dirname(os.path.realpath(__file__))
+name = '0ce218cb3e'
+cmds = ['pair_style hybrid/overlay pace table spline 5000',
+        f'pair_coeff * * pace {model_dir}/{name}.yace Si', 
+        f'pair_coeff 1 1 table {model_dir}/{name}_pairpot.table Si_Si']
+
+calculator = LAMMPSlib(lmpcmds=cmds, keep_alive=True, log_file='lammps_output.log')
+
+no_checkpoint = True
+============================================================
+test file: /home/eng/phrffk/testing-framework/tests/Si/phonon_bulks/test.py
+============================================================
+from phonons import *
+
+properties = do_phonons(['bulk_Si_diamond'], n_supercell=6, band_paths=['GXKGL'])
+============================================================
+Traceback (most recent call last):
+  File "/home/eng/phrffk/testing-framework/scripts/run-model-test.py", line 139, in <module>
+    import test  # import and run the current test
+  File "/home/eng/phrffk/testing-framework/tests/Si/phonon_bulks/test.py", line 1, in <module>
+    from phonons import *
+  File "/home/eng/phrffk/testing-framework/scripts/../share/phonons.py", line 4, in <module>
+    import phonopy
+ModuleNotFoundError: No module named 'phonopy'

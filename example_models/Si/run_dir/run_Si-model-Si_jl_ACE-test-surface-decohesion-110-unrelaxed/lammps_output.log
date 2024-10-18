@@ -1,0 +1,3357 @@
+LAMMPS (27 Jun 2024 - Development - patch_17Apr2024-1524-g5a286ff933-modified)
+  using 1 OpenMP thread(s) per MPI task
+units metal
+atom_style atomic
+atom_modify map array sort 0 0
+boundary p p p
+box tilt large
+
+The 'box' command has been removed and will be ignored
+
+region cell prism    0 5.44 0 3.846660889654819 0 3.8466608896548196     0.0 0.0 0.0     units box
+create_box 1 cell
+Created triclinic box = (0 0 0) to (5.44 3.8466609 3.8466609) with tilt (0 0 0)
+  1 by 1 by 1 MPI processor grid
+echo none
+Created 4 atoms
+  using lattice units in triclinic box = (0 0 0) to (5.44 3.8466609 3.8466609) with tilt (0 0 0)
+  create_atoms CPU = 0.001 seconds
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+pair_style hybrid/overlay pace table spline 5000
+ACE version: 2023.11.25
+Recursive evaluator is used
+pair_coeff * * pace /home/eng/phrffk/testing-framework/example_models/Si/models/Si_jl_ACE/0ce218cb3e.yace Si
+Loading /home/eng/phrffk/testing-framework/example_models/Si/models/Si_jl_ACE/0ce218cb3e.yace
+Total number of basis functions
+	Si: 32 (r=1) 45284 (r>1)
+Mapping LAMMPS atom type #1(Si) -> ACE species type #0
+pair_coeff 1 1 table /home/eng/phrffk/testing-framework/example_models/Si/models/Si_jl_ACE/0ce218cb3e_pairpot.table Si_Si
+Reading pair table potential file /home/eng/phrffk/testing-framework/example_models/Si/models/Si_jl_ACE/0ce218cb3e_pairpot.table with DATE: none
+WARNING: 1 of 6000 force values in table Si_Si are inconsistent with -dE/dr.
+WARNING:  Should only be flagged at inflection points (src/pair_table.cpp:473)
+mass 1 28.084999992775294685998233035207
+variable pxx equal pxx
+variable pyy equal pyy
+variable pzz equal pzz
+variable pxy equal pxy
+variable pxz equal pxz
+variable pyz equal pyz
+thermo_style custom pe pxx emol ecoul
+variable fx atom fx
+variable fy atom fy
+variable fz atom fz
+variable pe equal pe
+neigh_modify delay 0 every 1 check yes
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 8
+  ghost atom cutoff = 8
+  binsize = 4, bins = 2 1 1
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair pace, perpetual
+      attributes: full, newton on
+      pair build: full/bin/atomonly
+      stencil: full/bin/3d
+      bin: standard
+  (2) pair table, perpetual, half/full from (1)
+      attributes: half, newton on
+      pair build: halffull/newton/tri
+      stencil: none
+      bin: none
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-652.70805      10325.98       0              0            
+Loop time of 9.77e-07 on 1 procs for 0 steps with 4 atoms
+
+204.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 9.77e-07   |            |       |100.00
+
+Nlocal:              4 ave           4 max           4 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            455 ave         455 max         455 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            196 ave         196 max         196 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:          392 ave         392 max         392 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 392
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  4 settings made for x
+  4 settings made for y
+  4 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 3.8466609) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 3.8466609) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+Created 16 atoms
+  using lattice units in triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  create_atoms CPU = 0.000 seconds
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+Setting atom values ...
+  1 settings made for type
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 7.7e-07 on 1 procs for 0 steps with 20 atoms
+
+129.9% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 7.7e-07    |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.3333044482741      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.333304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.498       7851.3857      0              0            
+Loop time of 6.27e-07 on 1 procs for 0 steps with 20 atoms
+
+159.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.27e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.27e-07 on 1 procs for 0 steps with 20 atoms
+
+159.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.27e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.433304448274093      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.433304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.3639      6365.1891      0              0            
+Loop time of 6.5e-07 on 1 procs for 0 steps with 20 atoms
+
+153.8% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.5e-07    |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.08e-07 on 1 procs for 0 steps with 20 atoms
+
+164.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.08e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.5333044482741      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.533304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.1624      5421.9901      0              0            
+Loop time of 6.2e-07 on 1 procs for 0 steps with 20 atoms
+
+161.3% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.2e-07    |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6e-07 on 1 procs for 0 steps with 20 atoms
+
+166.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6e-07      |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.633304448274096      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.633304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3262.9117      4707.8164      0              0            
+Loop time of 5.95e-07 on 1 procs for 0 steps with 20 atoms
+
+168.1% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.95e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            972 ave         972 max         972 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1944 ave        1944 max        1944 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1944
+Ave neighs/atom = 97.2
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.05e-07 on 1 procs for 0 steps with 20 atoms
+
+165.3% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.05e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.733304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.733304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3262.6255      4053.5683      0              0            
+Loop time of 5.66e-07 on 1 procs for 0 steps with 20 atoms
+
+176.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.66e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            972 ave         972 max         972 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1944 ave        1944 max        1944 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1944
+Ave neighs/atom = 97.2
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 5.91e-07 on 1 procs for 0 steps with 20 atoms
+
+169.2% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.91e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.8333044482741      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.833304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3262.3154      3430.2968      0              0            
+Loop time of 5.76e-07 on 1 procs for 0 steps with 20 atoms
+
+173.6% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.76e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            956 ave         956 max         956 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1912 ave        1912 max        1912 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1912
+Ave neighs/atom = 95.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 5.96e-07 on 1 procs for 0 steps with 20 atoms
+
+167.8% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.96e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.933304448274093      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.933304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3261.9939      2878.699       0              0            
+Loop time of 5.99e-07 on 1 procs for 0 steps with 20 atoms
+
+333.9% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.99e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            956 ave         956 max         956 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1912 ave        1912 max        1912 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1912
+Ave neighs/atom = 95.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 5.86e-07 on 1 procs for 0 steps with 20 atoms
+
+170.6% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.86e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 20.033304448274098      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.033304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3261.6734      2408.1046      0              0            
+Loop time of 5.73e-07 on 1 procs for 0 steps with 20 atoms
+
+174.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.73e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            956 ave         956 max         956 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1912 ave        1912 max        1912 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1912
+Ave neighs/atom = 95.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6e-07 on 1 procs for 0 steps with 20 atoms
+
+166.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6e-07      |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 20.133304448274096      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.133304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3261.3632      1953.9838      0              0            
+Loop time of 6.09e-07 on 1 procs for 0 steps with 20 atoms
+
+164.2% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.09e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            956 ave         956 max         956 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1912 ave        1912 max        1912 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1912
+Ave neighs/atom = 95.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.6e-07 on 1 procs for 0 steps with 20 atoms
+
+151.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.6e-07    |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 20.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3261.0683      1426.2818      0              0            
+Loop time of 6.29e-07 on 1 procs for 0 steps with 20 atoms
+
+159.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.29e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            956 ave         956 max         956 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1912 ave        1912 max        1912 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1912
+Ave neighs/atom = 95.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6e-07 on 1 procs for 0 steps with 20 atoms
+
+166.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6e-07      |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 20.3333044482741      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.333304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3260.7899      784.42461      0              0            
+Loop time of 5.78e-07 on 1 procs for 0 steps with 20 atoms
+
+346.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.78e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            956 ave         956 max         956 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1912 ave        1912 max        1912 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1912
+Ave neighs/atom = 95.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.23e-07 on 1 procs for 0 steps with 20 atoms
+
+160.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.23e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 20.433304448274093      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.433304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3260.5286      50.752157      0              0            
+Loop time of 6.25e-07 on 1 procs for 0 steps with 20 atoms
+
+160.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.25e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            938 ave         938 max         938 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1876 ave        1876 max        1876 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1876
+Ave neighs/atom = 93.8
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 5.93e-07 on 1 procs for 0 steps with 20 atoms
+
+168.6% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.93e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 20.533304448274098      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.533304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3260.2864     -728.44         0              0            
+Loop time of 6.59e-07 on 1 procs for 0 steps with 20 atoms
+
+151.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.59e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            938 ave         938 max         938 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1876 ave        1876 max        1876 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1876
+Ave neighs/atom = 93.8
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.29e-07 on 1 procs for 0 steps with 20 atoms
+
+159.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.29e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 20.633304448274096      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.633304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3260.0663     -1519.9478      0              0            
+Loop time of 5.97e-07 on 1 procs for 0 steps with 20 atoms
+
+167.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.97e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            938 ave         938 max         938 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1876 ave        1876 max        1876 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1876
+Ave neighs/atom = 93.8
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 1.305e-06 on 1 procs for 0 steps with 20 atoms
+
+229.9% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 1.305e-06  |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 20.733304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.733304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3259.8706     -2304.4718      0              0            
+Loop time of 5.97e-07 on 1 procs for 0 steps with 20 atoms
+
+167.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.97e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            938 ave         938 max         938 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1876 ave        1876 max        1876 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1876
+Ave neighs/atom = 93.8
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.03e-07 on 1 procs for 0 steps with 20 atoms
+
+331.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.03e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 20.8333044482741      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.833304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3259.7        -3050.1998      0              0            
+Loop time of 6.08e-07 on 1 procs for 0 steps with 20 atoms
+
+164.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.08e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            906 ave         906 max         906 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1812 ave        1812 max        1812 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1812
+Ave neighs/atom = 90.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.18e-07 on 1 procs for 0 steps with 20 atoms
+
+161.8% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.18e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 20.9333044482741      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.933304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3259.5522     -3691.4119      0              0            
+Loop time of 6.14e-07 on 1 procs for 0 steps with 20 atoms
+
+162.9% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.14e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            906 ave         906 max         906 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1812 ave        1812 max        1812 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1812
+Ave neighs/atom = 90.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 20.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.34e-07 on 1 procs for 0 steps with 20 atoms
+
+157.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.34e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 21.033304448274098      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.033304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3259.4232     -4128.4872      0              0            
+Loop time of 5.67e-07 on 1 procs for 0 steps with 20 atoms
+
+352.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.67e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            906 ave         906 max         906 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1812 ave        1812 max        1812 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1812
+Ave neighs/atom = 90.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.39e-07 on 1 procs for 0 steps with 20 atoms
+
+156.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.39e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 21.133304448274096      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.133304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3259.31       -4291.5992      0              0            
+Loop time of 6.05e-07 on 1 procs for 0 steps with 20 atoms
+
+165.3% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.05e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            906 ave         906 max         906 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1812 ave        1812 max        1812 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1812
+Ave neighs/atom = 90.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.1e-07 on 1 procs for 0 steps with 20 atoms
+
+163.9% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.1e-07    |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 21.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3259.2105     -4172.3919      0              0            
+Loop time of 6.06e-07 on 1 procs for 0 steps with 20 atoms
+
+165.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.06e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            906 ave         906 max         906 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1812 ave        1812 max        1812 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1812
+Ave neighs/atom = 90.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 5.87e-07 on 1 procs for 0 steps with 20 atoms
+
+340.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.87e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 21.3333044482741      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.333304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3259.1237     -3808.7104      0              0            
+Loop time of 6.01e-07 on 1 procs for 0 steps with 20 atoms
+
+332.8% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.01e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            727 ave         727 max         727 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            898 ave         898 max         898 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1796 ave        1796 max        1796 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1796
+Ave neighs/atom = 89.8
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.04e-07 on 1 procs for 0 steps with 20 atoms
+
+165.6% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.04e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 21.4333044482741      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.433304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3259.0492     -3267.9342      0              0            
+Loop time of 6e-07 on 1 procs for 0 steps with 20 atoms
+
+166.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6e-07      |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            892 ave         892 max         892 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1784 ave        1784 max        1784 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1784
+Ave neighs/atom = 89.2
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.07e-07 on 1 procs for 0 steps with 20 atoms
+
+164.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.07e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 21.533304448274098      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.533304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.9865     -2644.689       0              0            
+Loop time of 5.81e-07 on 1 procs for 0 steps with 20 atoms
+
+172.1% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.81e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            890 ave         890 max         890 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1780 ave        1780 max        1780 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1780
+Ave neighs/atom = 89
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 5.73e-07 on 1 procs for 0 steps with 20 atoms
+
+174.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.73e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 21.633304448274096      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.633304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.9353     -2053.3779      0              0            
+Loop time of 5.73e-07 on 1 procs for 0 steps with 20 atoms
+
+174.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.73e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            890 ave         890 max         890 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1780 ave        1780 max        1780 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1780
+Ave neighs/atom = 89
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.36e-07 on 1 procs for 0 steps with 20 atoms
+
+157.2% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.36e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 21.733304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.733304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.8945     -1594.1928      0              0            
+Loop time of 6.15e-07 on 1 procs for 0 steps with 20 atoms
+
+162.6% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.15e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            890 ave         890 max         890 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1780 ave        1780 max        1780 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1780
+Ave neighs/atom = 89
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.14e-07 on 1 procs for 0 steps with 20 atoms
+
+162.9% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.14e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 21.8333044482741      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.833304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.8624     -1262.003       0              0            
+Loop time of 5.88e-07 on 1 procs for 0 steps with 20 atoms
+
+340.1% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.88e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            890 ave         890 max         890 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1780 ave        1780 max        1780 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1780
+Ave neighs/atom = 89
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.833304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.08e-07 on 1 procs for 0 steps with 20 atoms
+
+164.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.08e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 21.9333044482741      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.933304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.8374     -1021.0008      0              0            
+Loop time of 6e-07 on 1 procs for 0 steps with 20 atoms
+
+166.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6e-07      |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            890 ave         890 max         890 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1780 ave        1780 max        1780 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1780
+Ave neighs/atom = 89
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 21.933304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.28e-07 on 1 procs for 0 steps with 20 atoms
+
+159.2% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.28e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 22.033304448274098      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.033304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.8181     -861.71316      0              0            
+Loop time of 5.91e-07 on 1 procs for 0 steps with 20 atoms
+
+169.2% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.91e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            882 ave         882 max         882 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1764 ave        1764 max        1764 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1764
+Ave neighs/atom = 88.2
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.033304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 5.67e-07 on 1 procs for 0 steps with 20 atoms
+
+176.4% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.67e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 22.133304448274096      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.133304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.8039     -759.27109      0              0            
+Loop time of 6.02e-07 on 1 procs for 0 steps with 20 atoms
+
+166.1% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.02e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            882 ave         882 max         882 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1764 ave        1764 max        1764 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1764
+Ave neighs/atom = 88.2
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.133304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.42e-07 on 1 procs for 0 steps with 20 atoms
+
+155.8% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.42e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 22.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.794      -685.41842      0              0            
+Loop time of 5.94e-07 on 1 procs for 0 steps with 20 atoms
+
+168.4% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.94e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            874 ave         874 max         874 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1748 ave        1748 max        1748 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1748
+Ave neighs/atom = 87.4
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 5.87e-07 on 1 procs for 0 steps with 20 atoms
+
+170.4% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.87e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 22.3333044482741      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.333304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.7882     -630.31134      0              0            
+Loop time of 5.7e-07 on 1 procs for 0 steps with 20 atoms
+
+175.4% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.7e-07    |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            874 ave         874 max         874 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1748 ave        1748 max        1748 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1748
+Ave neighs/atom = 87.4
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.333304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6e-07 on 1 procs for 0 steps with 20 atoms
+
+166.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6e-07      |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 22.433304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.433304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.7852     -574.83908      0              0            
+Loop time of 6.25e-07 on 1 procs for 0 steps with 20 atoms
+
+160.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.25e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            866 ave         866 max         866 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1732 ave        1732 max        1732 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1732
+Ave neighs/atom = 86.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.433304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 5.86e-07 on 1 procs for 0 steps with 20 atoms
+
+170.6% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.86e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 22.533304448274098      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.533304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.7844     -492.32735      0              0            
+Loop time of 5.7e-07 on 1 procs for 0 steps with 20 atoms
+
+175.4% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.7e-07    |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            866 ave         866 max         866 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1732 ave        1732 max        1732 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1732
+Ave neighs/atom = 86.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.533304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 6.36e-07 on 1 procs for 0 steps with 20 atoms
+
+157.2% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 6.36e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 22.633304448274096      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.633304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.785      -397.41412      0              0            
+Loop time of 5.94e-07 on 1 procs for 0 steps with 20 atoms
+
+336.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.94e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            866 ave         866 max         866 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1732 ave        1732 max        1732 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1732
+Ave neighs/atom = 86.6
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 19.233304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.633304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3263.5402      10325.98       0              0            
+Loop time of 5.95e-07 on 1 procs for 0 steps with 20 atoms
+
+168.1% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.95e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            766 ave         766 max         766 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            980 ave         980 max         980 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1960 ave        1960 max        1960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1960
+Ave neighs/atom = 98
+Neighbor list builds = 0
+Dangerous builds = 0
+set atom * x 0.0 y 0.0 z 0.0
+Setting atom values ...
+  20 settings made for x
+  20 settings made for y
+  20 settings made for z
+change_box all     x final 0 5.44 y final 0 3.846660889654819 z final 0 22.733304448274097      xy final 0.0 xz final 0.0 yz final 0.0 units box
+Changing box ...
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 19.233304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.733304) with tilt (0 0 0)
+  triclinic box = (0 0 0) to (5.44 3.8466609 22.733304) with tilt (0 0 0)
+echo none
+run 0
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 3.614 | 3.614 | 3.614 Mbytes
+    PotEng          Pxx           E_mol          E_coul    
+-3258.7863     -305.47879      0              0            
+Loop time of 5.99e-07 on 1 procs for 0 steps with 20 atoms
+
+333.9% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.99e-07   |            |       |100.00
+
+Nlocal:             20 ave          20 max          20 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            683 ave         683 max         683 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:            866 ave         866 max         866 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:         1732 ave        1732 max        1732 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1732
+Ave neighs/atom = 86.6
+Neighbor list builds = 0
+Dangerous builds = 0
+Total wall time: 0:00:11

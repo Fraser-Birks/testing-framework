@@ -1,0 +1,74 @@
+
+###### START RUN Fri Oct 18 12:32:52 2024 ######
+Model Si_jl_ACE, Test surface_Si_diamond_111
+Test run at 2024-10-18 12:32
+
+model file: /home/eng/phrffk/testing-framework/example_models/Si/run_dir/../models/Si_jl_ACE/model.py
+============================================================
+from ase.calculators.lammpslib import LAMMPSlib
+import os
+import glob
+
+
+
+model_dir = os.path.dirname(os.path.realpath(__file__))
+name = '0ce218cb3e'
+cmds = ['pair_style hybrid/overlay pace table spline 5000',
+        f'pair_coeff * * pace {model_dir}/{name}.yace Si', 
+        f'pair_coeff 1 1 table {model_dir}/{name}_pairpot.table Si_Si']
+
+calculator = LAMMPSlib(lmpcmds=cmds, keep_alive=True, log_file='lammps_output.log')
+
+no_checkpoint = True
+============================================================
+test file: /home/eng/phrffk/testing-framework/tests/Si/surface_Si_diamond_111/test.py
+============================================================
+import os.path, surface
+
+properties = surface.do_symmetric_surface(os.path.abspath(os.path.dirname(__file__)))
+============================================================
+Traceback (most recent call last):
+  File "/home/eng/phrffk/testing-framework/scripts/run-model-test.py", line 139, in <module>
+    import test  # import and run the current test
+  File "/home/eng/phrffk/testing-framework/tests/Si/surface_Si_diamond_111/test.py", line 3, in <module>
+    properties = surface.do_symmetric_surface(os.path.abspath(os.path.dirname(__file__)))
+  File "/home/eng/phrffk/testing-framework/scripts/../share/surface.py", line 9, in do_symmetric_surface
+    assert len(supercell) == 2
+NameError: name 'supercell' is not defined
+
+###### START RUN Fri Oct 18 12:40:07 2024 ######
+Model Si_jl_ACE, Test surface_Si_diamond_111
+Test run at 2024-10-18 12:40
+
+model file: /home/eng/phrffk/testing-framework/example_models/Si/run_dir/../models/Si_jl_ACE/model.py
+============================================================
+from ase.calculators.lammpslib import LAMMPSlib
+import os
+import glob
+
+
+
+model_dir = os.path.dirname(os.path.realpath(__file__))
+name = '0ce218cb3e'
+cmds = ['pair_style hybrid/overlay pace table spline 5000',
+        f'pair_coeff * * pace {model_dir}/{name}.yace Si', 
+        f'pair_coeff 1 1 table {model_dir}/{name}_pairpot.table Si_Si']
+
+calculator = LAMMPSlib(lmpcmds=cmds, keep_alive=True, log_file='lammps_output.log')
+
+no_checkpoint = True
+============================================================
+test file: /home/eng/phrffk/testing-framework/tests/Si/surface_Si_diamond_111/test.py
+============================================================
+import os.path, surface
+
+properties = surface.do_symmetric_surface(os.path.abspath(os.path.dirname(__file__)))
+============================================================
+Traceback (most recent call last):
+  File "/home/eng/phrffk/testing-framework/scripts/run-model-test.py", line 139, in <module>
+    import test  # import and run the current test
+  File "/home/eng/phrffk/testing-framework/tests/Si/surface_Si_diamond_111/test.py", line 3, in <module>
+    properties = surface.do_symmetric_surface(os.path.abspath(os.path.dirname(__file__)))
+  File "/home/eng/phrffk/testing-framework/scripts/../share/surface.py", line 9, in do_symmetric_surface
+    assert len(supercell) == 2
+NameError: name 'supercell' is not defined

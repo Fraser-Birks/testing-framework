@@ -1,0 +1,342 @@
+
+###### START RUN Fri Oct 18 12:30:48 2024 ######
+Model Si_jl_ACE, Test RSS
+Test run at 2024-10-18 12:30
+
+model file: /home/eng/phrffk/testing-framework/example_models/Si/run_dir/../models/Si_jl_ACE/model.py
+============================================================
+from ase.calculators.lammpslib import LAMMPSlib
+import os
+import glob
+
+
+
+model_dir = os.path.dirname(os.path.realpath(__file__))
+name = '0ce218cb3e'
+cmds = ['pair_style hybrid/overlay pace table spline 5000',
+        f'pair_coeff * * pace {model_dir}/{name}.yace Si', 
+        f'pair_coeff 1 1 table {model_dir}/{name}_pairpot.table Si_Si']
+
+calculator = LAMMPSlib(lmpcmds=cmds, keep_alive=True, log_file='lammps_output.log')
+
+no_checkpoint = True
+============================================================
+test file: /home/eng/phrffk/testing-framework/tests/Si/RSS/test.py
+============================================================
+import os.path
+from RSS import do_RSS
+
+properties = do_RSS(os.path.join(os.path.abspath(os.path.dirname(__file__)),'random_structs.extxyz'),':400:2')
+============================================================
+got index  :400:2 range_slice_args [None, 400, 2]
+using i_config range(0, 200, 2)
+relax_config symmetry before refinement at default tol 1.0e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 14 , international (Hermann-Mauguin) P2_1/c , Hall  -P 2ybc
+relax_config trying to maintain symmetry
+ SD2: i 0 E -2201.699779688919 f 41.25846634285992 s 244.39632928057645  alpha 0.0001 False
+ SD2: i 1 E -2211.6034626411 f 39.25784561408419 s 243.92958303567482  alpha 0.0008345789287122814 False
+/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/spacegroup/symmetrize.py:217: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.22578177003615596
+  warnings.warn('FixSymmetry adjust_cell may be ill behaved with'
+ SD2: i 2 E -2256.190296451975 f 9.715488038676991 s 26.201887900764167  alpha 0.0009284571041454639 False
+ SD2: i 3 E -2257.7395766574364 f 7.111425960210716 s 18.35073204466245  alpha 0.0016086193174077222 False
+ SD2: i 4 E -2259.160199228944 f 5.4792959677565705 s 24.535776591297346  alpha 0.0009460638097767351 False
+ SD2: i 5 E -2260.06316216091 f 5.24606302629238 s 27.672040081091925  alpha 0.01 False
+/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/spacegroup/symmetrize.py:217: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.24171033396493025
+  warnings.warn('FixSymmetry adjust_cell may be ill behaved with'
+ SD2: i 6 E -2269.4465181132555 f 4.545710825204439 s 24.49381392484464  alpha 0.0076475443415846426 False
+/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/spacegroup/symmetrize.py:217: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.17065549565536242
+  warnings.warn('FixSymmetry adjust_cell may be ill behaved with'
+ SD2: i 7 E -2274.150221392645 f 1.139753281450154 s 16.550830892176705  alpha 0.005160981894995279 False
+ SD2: i 8 E -2274.8506985736335 f 3.175208809172466 s 15.264630869755983  alpha 0.002634768532799944 False
+ SD2: i 9 E -2275.3931855948354 f 1.713876878861332 s 3.9752108231122576  alpha 0.0021267865539681408 False
+ SD2: i 10 E -2275.4951866875685 f 1.868697597202367 s 1.6499278564778375  alpha 0.002572147124302747 False
+ SD2: i 11 E -2275.5693103611466 f 1.8355706491089108 s 1.2825166154812218  alpha 0.005237264236423359 False
+ SD2: i 12 E -2275.7054390228727 f 1.7019679725389427 s 1.3955178135760036  alpha 0.048752451702632246 False
+ SD2: i 13 E -2276.4499146419726 f 1.1219746067583078 s 2.194337665355131  alpha 0.03059805797714137 False
+ SD2: i 14 E -2275.260006841595 f 0.3648536063242575 s 17.375318653701513  alpha 0.0031784857900947123 False
+ SD2: i 15 E -2276.612485254181 f 0.8118574053593548 s 3.515385252507844  alpha 0.0030942872858794063 False
+ SD2: i 16 E -2276.654892010101 f 0.8615828056390256 s 1.1251657258080432  alpha 0.004213154059318026 False
+ SD2: i 17 E -2276.677400798483 f 0.9140001710981902 s 0.4523021687512642  True
+symmetry at end of relaxation at default tol 1e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 14 , international (Hermann-Mauguin) P2_1/c , Hall  -P 2ybc
+relax_config symmetry before refinement at default tol 1.0e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 14 , international (Hermann-Mauguin) P2_1/c , Hall  -P 2ybc
+relax_config trying to maintain symmetry
+/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/optimize/precon/lbfgs.py:133: UserWarning: The system is likely too small to benefit from the standard preconditioner, hence it is disabled. To re-enable preconditioning, call `PreconLBFGS` by explicitly providing the kwarg `precon`
+  warnings.warn('The system is likely too small to benefit from '
+PreconLBFGS:   0  12:30:59    -2276.677401       0.8672       0.0019
+PreconLBFGS:   1  12:30:59    -2276.897416       0.7902       0.0253
+PreconLBFGS:   2  12:30:59    -2277.150746       0.9057       0.0165
+PreconLBFGS:   3  12:30:59    -2277.640933       0.7801       0.0176
+PreconLBFGS:   4  12:30:59    -2277.709715       0.6080       0.0263
+PreconLBFGS:   5  12:30:59    -2277.811071       0.5749       0.0217
+PreconLBFGS:   6  12:30:59    -2277.979573       0.5563       0.0234
+PreconLBFGS:   7  12:30:59    -2278.149930       0.4486       0.0215
+PreconLBFGS:   8  12:31:00    -2278.461829       0.3739       0.0114
+PreconLBFGS:   9  12:31:00    -2278.531160       0.1809       0.0152
+PreconLBFGS:  10  12:31:00    -2278.618944       0.1071       0.0073
+PreconLBFGS:  11  12:31:00    -2278.686716       0.1866       0.0072
+PreconLBFGS:  12  12:31:00    -2278.770026       0.1429       0.0064
+PreconLBFGS:  13  12:31:00    -2278.806276       0.1421       0.0064
+PreconLBFGS:  14  12:31:00    -2278.839216       0.0810       0.0046
+PreconLBFGS:  15  12:31:00    -2278.863587       0.0729       0.0038
+PreconLBFGS:  16  12:31:01    -2278.877775       0.0651       0.0019
+PreconLBFGS:  17  12:31:01    -2278.885852       0.0545       0.0008
+PreconLBFGS:  18  12:31:01    -2278.893372       0.0680       0.0033
+PreconLBFGS:  19  12:31:01    -2278.904892       0.0694       0.0050
+PreconLBFGS:  20  12:31:01    -2278.914663       0.0590       0.0034
+symmetry at end of relaxation at default tol 1e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 14 , international (Hermann-Mauguin) P2_1/c , Hall  -P 2ybc
+robust_minim relax_configs LBFGS finished in  21 iters, max 20
+relax_config symmetry before refinement at default tol 1.0e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 14 , international (Hermann-Mauguin) P2_1/c , Hall  -P 2ybc
+relax_config trying to maintain symmetry
+PreconLBFGS:   0  12:31:01    -2278.914663       0.0636       0.0034
+PreconLBFGS:   1  12:31:01    -2278.916083       0.0601       0.0005
+PreconLBFGS:   2  12:31:01    -2278.916373       0.0547       0.0005
+PreconLBFGS:   3  12:31:01    -2278.916713       0.0421       0.0008
+PreconLBFGS:   4  12:31:01    -2278.917932       0.0440       0.0005
+PreconLBFGS:   5  12:31:01    -2278.918235       0.0479       0.0002
+PreconLBFGS:   6  12:31:01    -2278.920796       0.0274       0.0001
+PreconLBFGS:   7  12:31:02    -2278.921574       0.0282       0.0002
+PreconLBFGS:   8  12:31:02    -2278.922703       0.0264       0.0001
+PreconLBFGS:   9  12:31:02    -2278.923951       0.0204       0.0001
+PreconLBFGS:  10  12:31:02    -2278.925051       0.0290       0.0002
+PreconLBFGS:  11  12:31:02    -2278.925801       0.0098       0.0002
+symmetry at end of relaxation at default tol 1e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 14 , international (Hermann-Mauguin) P2_1/c , Hall  -P 2ybc
+robust_minim relax_configs LBFGS finished in  12 iters, max 20
+RSS completed minimization
+relax_config symmetry before refinement at default tol 1.0e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 18 , international (Hermann-Mauguin) P2_12_12 , Hall  P 2 2ab
+relax_config trying to maintain symmetry
+ SD2: i 0 E -1276.5828539827462 f 18.681975453377177 s 55.470954620531295  alpha 0.0001 False
+ SD2: i 1 E -1277.605881223518 f 18.534897233867987 s 54.05811382961938  alpha 0.002141114857997218 False
+ SD2: i 2 E -1290.6492084739048 f 9.733081544928691 s 12.271233890345435  alpha 0.0027660516125912657 False
+ SD2: i 3 E -1293.2916764715428 f 8.23848957948419 s 9.310195657920964  alpha 0.008882146113005699 False
+ SD2: i 4 E -1296.5142766532374 f 1.0131178016111908 s 7.112585267474151  alpha 0.0069334287875491675 False
+ SD2: i 5 E -1297.259374602002 f 2.888946674043319 s 3.964420250129163  alpha 0.005750187020510247 False
+ SD2: i 6 E -1297.7994132168087 f 2.7576981971380934 s 3.871313733042724  alpha 0.026221282863748734 False
+ SD2: i 7 E -1298.623828303747 f 2.208223666418858 s 11.859276194315187  alpha 0.006992892032667104 False
+ SD2: i 8 E -1298.848695848823 f 0.4683735036334834 s 6.9783431727520675  alpha 0.004339082454659653 False
+ SD2: i 9 E -1299.2352563226023 f 0.812103141192112 s 1.967039089163247  alpha 0.005941500850179617 False
+ SD2: i 10 E -1299.2989071772006 f 0.954148094031222 s 0.6001933214931557  True
+symmetry at end of relaxation at default tol 1e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 18 , international (Hermann-Mauguin) P2_12_12 , Hall  P 2 2ab
+relax_config symmetry before refinement at default tol 1.0e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 18 , international (Hermann-Mauguin) P2_12_12 , Hall  P 2 2ab
+relax_config trying to maintain symmetry
+PreconLBFGS:   0  12:31:02    -1299.300937       0.9622       0.0036
+PreconLBFGS:   1  12:31:02    -1299.491560       0.6509       0.0186
+PreconLBFGS:   2  12:31:02    -1299.924097       0.5301       0.0079
+PreconLBFGS:   3  12:31:02    -1300.088052       0.3311       0.0133
+PreconLBFGS:   4  12:31:02    -1300.128339       0.3749       0.0243
+PreconLBFGS:   5  12:31:02    -1300.137535       0.4166       0.0269
+PreconLBFGS:   6  12:31:02    -1300.179236       0.4703       0.0262
+PreconLBFGS:   7  12:31:02    -1300.301072       0.2924       0.0185
+PreconLBFGS:   8  12:31:02    -1300.385822       0.1268       0.0059
+PreconLBFGS:   9  12:31:02    -1300.396082       0.0580       0.0032
+PreconLBFGS:  10  12:31:02    -1300.399546       0.0194       0.0006
+PreconLBFGS:  11  12:31:02    -1300.399878       0.0057       0.0002
+symmetry at end of relaxation at default tol 1e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 113 , international (Hermann-Mauguin) P-42_1m , Hall  P -4 2ab
+robust_minim relax_configs LBFGS finished in  12 iters, max 20
+RSS completed minimization
+relax_config symmetry before refinement at default tol 1.0e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 18 , international (Hermann-Mauguin) P2_12_12 , Hall  P 2 2ab
+relax_config trying to maintain symmetry
+ SD2: i 0 E -3125.3354165077176 f 49.15609393570225 s 617.9355943069068  alpha 0.0001 False
+ SD2: i 1 E -3168.2318257558536 f 34.688154305394924 s 493.62132609262943  alpha 0.00048329436632547565 False
+Traceback (most recent call last):
+  File "/home/eng/phrffk/testing-framework/scripts/run-model-test.py", line 139, in <module>
+    import test  # import and run the current test
+  File "/home/eng/phrffk/testing-framework/tests/Si/RSS/test.py", line 4, in <module>
+    properties = do_RSS(os.path.join(os.path.abspath(os.path.dirname(__file__)),'random_structs.extxyz'),':400:2')
+  File "/home/eng/phrffk/testing-framework/scripts/../share/RSS.py", line 16, in do_RSS
+    robust_minim_cell_pos(at, tol, "RSS_%04d" % i_config)
+  File "/home/eng/phrffk/testing-framework/scripts/../share/utilities.py", line 343, in robust_minim_cell_pos
+    relax_config(atoms, relax_pos=True, relax_cell=True, tol=sd2_tol, max_steps=max_sd2_iter,
+  File "/home/eng/phrffk/testing-framework/scripts/../share/utilities.py", line 213, in relax_config
+    (traj, run_stat) = sd2_run("", atoms_cell, tol, lambda i : sd2_converged(i, atoms_cell, tol), max_steps)
+  File "/home/eng/phrffk/testing-framework/scripts/../share/utilities.py", line 76, in sd2_run
+    config_minim.set_positions(x)
+  File "/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/constraints.py", line 2611, in set_positions
+    UnitCellFilter.set_positions(self, new2, **kwargs)
+  File "/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/constraints.py", line 2407, in set_positions
+    self.atoms.set_cell(self.orig_cell @ new_deform_grad.T,
+  File "/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/atoms.py", line 382, in set_cell
+    constraint.adjust_cell(self, cell)
+  File "/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/spacegroup/symmetrize.py", line 213, in adjust_cell
+    raise RuntimeError('FixSymmetry adjust_cell does not work properly'
+RuntimeError: FixSymmetry adjust_cell does not work properly with large deformation gradient step 0.2694254620182197 > 0.25
+
+###### START RUN Fri Oct 18 12:38:11 2024 ######
+Model Si_jl_ACE, Test RSS
+Test run at 2024-10-18 12:38
+
+model file: /home/eng/phrffk/testing-framework/example_models/Si/run_dir/../models/Si_jl_ACE/model.py
+============================================================
+from ase.calculators.lammpslib import LAMMPSlib
+import os
+import glob
+
+
+
+model_dir = os.path.dirname(os.path.realpath(__file__))
+name = '0ce218cb3e'
+cmds = ['pair_style hybrid/overlay pace table spline 5000',
+        f'pair_coeff * * pace {model_dir}/{name}.yace Si', 
+        f'pair_coeff 1 1 table {model_dir}/{name}_pairpot.table Si_Si']
+
+calculator = LAMMPSlib(lmpcmds=cmds, keep_alive=True, log_file='lammps_output.log')
+
+no_checkpoint = True
+============================================================
+test file: /home/eng/phrffk/testing-framework/tests/Si/RSS/test.py
+============================================================
+import os.path
+from RSS import do_RSS
+
+properties = do_RSS(os.path.join(os.path.abspath(os.path.dirname(__file__)),'random_structs.extxyz'),':400:2')
+============================================================
+got index  :400:2 range_slice_args [None, 400, 2]
+using i_config range(0, 200, 2)
+relax_config symmetry before refinement at default tol 1.0e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 14 , international (Hermann-Mauguin) P2_1/c , Hall  -P 2ybc
+relax_config trying to maintain symmetry
+ SD2: i 0 E -2201.699779688919 f 41.25846634285992 s 244.39632928057645  alpha 0.0001 False
+ SD2: i 1 E -2211.6034626411 f 39.25784561408419 s 243.92958303567482  alpha 0.0008345789287122814 False
+/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/spacegroup/symmetrize.py:217: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.22578177003615596
+  warnings.warn('FixSymmetry adjust_cell may be ill behaved with'
+ SD2: i 2 E -2256.190296451975 f 9.715488038676991 s 26.201887900764167  alpha 0.0009284571041454639 False
+ SD2: i 3 E -2257.7395766574364 f 7.111425960210716 s 18.35073204466245  alpha 0.0016086193174077222 False
+ SD2: i 4 E -2259.160199228944 f 5.4792959677565705 s 24.535776591297346  alpha 0.0009460638097767351 False
+ SD2: i 5 E -2260.06316216091 f 5.24606302629238 s 27.672040081091925  alpha 0.01 False
+/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/spacegroup/symmetrize.py:217: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.24171033396493025
+  warnings.warn('FixSymmetry adjust_cell may be ill behaved with'
+ SD2: i 6 E -2269.4465181132555 f 4.545710825204439 s 24.49381392484464  alpha 0.0076475443415846426 False
+/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/spacegroup/symmetrize.py:217: UserWarning: FixSymmetry adjust_cell may be ill behaved with large deformation gradient step 0.17065549565536242
+  warnings.warn('FixSymmetry adjust_cell may be ill behaved with'
+ SD2: i 7 E -2274.150221392645 f 1.139753281450154 s 16.550830892176705  alpha 0.005160981894995279 False
+ SD2: i 8 E -2274.8506985736335 f 3.175208809172466 s 15.264630869755983  alpha 0.002634768532799944 False
+ SD2: i 9 E -2275.3931855948354 f 1.713876878861332 s 3.9752108231122576  alpha 0.0021267865539681408 False
+ SD2: i 10 E -2275.4951866875685 f 1.868697597202367 s 1.6499278564778375  alpha 0.002572147124302747 False
+ SD2: i 11 E -2275.5693103611466 f 1.8355706491089108 s 1.2825166154812218  alpha 0.005237264236423359 False
+ SD2: i 12 E -2275.7054390228727 f 1.7019679725389427 s 1.3955178135760036  alpha 0.048752451702632246 False
+ SD2: i 13 E -2276.4499146419726 f 1.1219746067583078 s 2.194337665355131  alpha 0.03059805797714137 False
+ SD2: i 14 E -2275.260006841595 f 0.3648536063242575 s 17.375318653701513  alpha 0.0031784857900947123 False
+ SD2: i 15 E -2276.612485254181 f 0.8118574053593548 s 3.515385252507844  alpha 0.0030942872858794063 False
+ SD2: i 16 E -2276.654892010101 f 0.8615828056390256 s 1.1251657258080432  alpha 0.004213154059318026 False
+ SD2: i 17 E -2276.677400798483 f 0.9140001710981902 s 0.4523021687512642  True
+symmetry at end of relaxation at default tol 1e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 14 , international (Hermann-Mauguin) P2_1/c , Hall  -P 2ybc
+relax_config symmetry before refinement at default tol 1.0e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 14 , international (Hermann-Mauguin) P2_1/c , Hall  -P 2ybc
+relax_config trying to maintain symmetry
+/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/optimize/precon/lbfgs.py:133: UserWarning: The system is likely too small to benefit from the standard preconditioner, hence it is disabled. To re-enable preconditioning, call `PreconLBFGS` by explicitly providing the kwarg `precon`
+  warnings.warn('The system is likely too small to benefit from '
+PreconLBFGS:   0  12:38:22    -2276.677401       0.8672       0.0019
+PreconLBFGS:   1  12:38:23    -2276.897416       0.7902       0.0253
+PreconLBFGS:   2  12:38:23    -2277.150746       0.9057       0.0165
+PreconLBFGS:   3  12:38:23    -2277.640933       0.7801       0.0176
+PreconLBFGS:   4  12:38:23    -2277.709715       0.6080       0.0263
+PreconLBFGS:   5  12:38:23    -2277.811071       0.5749       0.0217
+PreconLBFGS:   6  12:38:23    -2277.979573       0.5563       0.0234
+PreconLBFGS:   7  12:38:23    -2278.149930       0.4486       0.0215
+PreconLBFGS:   8  12:38:23    -2278.461829       0.3739       0.0114
+PreconLBFGS:   9  12:38:23    -2278.531160       0.1809       0.0152
+PreconLBFGS:  10  12:38:23    -2278.618944       0.1071       0.0073
+PreconLBFGS:  11  12:38:24    -2278.686716       0.1866       0.0072
+PreconLBFGS:  12  12:38:24    -2278.770026       0.1429       0.0064
+PreconLBFGS:  13  12:38:24    -2278.806276       0.1421       0.0064
+PreconLBFGS:  14  12:38:24    -2278.839216       0.0810       0.0046
+PreconLBFGS:  15  12:38:24    -2278.863587       0.0729       0.0038
+PreconLBFGS:  16  12:38:24    -2278.877775       0.0651       0.0019
+PreconLBFGS:  17  12:38:24    -2278.885852       0.0545       0.0008
+PreconLBFGS:  18  12:38:24    -2278.893372       0.0680       0.0033
+PreconLBFGS:  19  12:38:24    -2278.904892       0.0694       0.0050
+PreconLBFGS:  20  12:38:24    -2278.914663       0.0590       0.0034
+symmetry at end of relaxation at default tol 1e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 14 , international (Hermann-Mauguin) P2_1/c , Hall  -P 2ybc
+robust_minim relax_configs LBFGS finished in  21 iters, max 20
+relax_config symmetry before refinement at default tol 1.0e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 14 , international (Hermann-Mauguin) P2_1/c , Hall  -P 2ybc
+relax_config trying to maintain symmetry
+PreconLBFGS:   0  12:38:25    -2278.914663       0.0636       0.0034
+PreconLBFGS:   1  12:38:25    -2278.916083       0.0601       0.0005
+PreconLBFGS:   2  12:38:25    -2278.916373       0.0547       0.0005
+PreconLBFGS:   3  12:38:25    -2278.916713       0.0421       0.0008
+PreconLBFGS:   4  12:38:25    -2278.917932       0.0440       0.0005
+PreconLBFGS:   5  12:38:25    -2278.918235       0.0479       0.0002
+PreconLBFGS:   6  12:38:25    -2278.920796       0.0274       0.0001
+PreconLBFGS:   7  12:38:25    -2278.921574       0.0282       0.0002
+PreconLBFGS:   8  12:38:25    -2278.922703       0.0264       0.0001
+PreconLBFGS:   9  12:38:25    -2278.923951       0.0204       0.0001
+PreconLBFGS:  10  12:38:25    -2278.925051       0.0290       0.0002
+PreconLBFGS:  11  12:38:25    -2278.925801       0.0098       0.0002
+symmetry at end of relaxation at default tol 1e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 14 , international (Hermann-Mauguin) P2_1/c , Hall  -P 2ybc
+robust_minim relax_configs LBFGS finished in  12 iters, max 20
+RSS completed minimization
+relax_config symmetry before refinement at default tol 1.0e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 18 , international (Hermann-Mauguin) P2_12_12 , Hall  P 2 2ab
+relax_config trying to maintain symmetry
+ SD2: i 0 E -1276.5828539827462 f 18.681975453377177 s 55.470954620531295  alpha 0.0001 False
+ SD2: i 1 E -1277.605881223518 f 18.534897233867987 s 54.05811382961938  alpha 0.002141114857997218 False
+ SD2: i 2 E -1290.6492084739048 f 9.733081544928691 s 12.271233890345435  alpha 0.0027660516125912657 False
+ SD2: i 3 E -1293.2916764715428 f 8.23848957948419 s 9.310195657920964  alpha 0.008882146113005699 False
+ SD2: i 4 E -1296.5142766532374 f 1.0131178016111908 s 7.112585267474151  alpha 0.0069334287875491675 False
+ SD2: i 5 E -1297.259374602002 f 2.888946674043319 s 3.964420250129163  alpha 0.005750187020510247 False
+ SD2: i 6 E -1297.7994132168087 f 2.7576981971380934 s 3.871313733042724  alpha 0.026221282863748734 False
+ SD2: i 7 E -1298.623828303747 f 2.208223666418858 s 11.859276194315187  alpha 0.006992892032667104 False
+ SD2: i 8 E -1298.848695848823 f 0.4683735036334834 s 6.9783431727520675  alpha 0.004339082454659653 False
+ SD2: i 9 E -1299.2352563226023 f 0.812103141192112 s 1.967039089163247  alpha 0.005941500850179617 False
+ SD2: i 10 E -1299.2989071772006 f 0.954148094031222 s 0.6001933214931557  True
+symmetry at end of relaxation at default tol 1e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 18 , international (Hermann-Mauguin) P2_12_12 , Hall  P 2 2ab
+relax_config symmetry before refinement at default tol 1.0e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 18 , international (Hermann-Mauguin) P2_12_12 , Hall  P 2 2ab
+relax_config trying to maintain symmetry
+PreconLBFGS:   0  12:38:26    -1299.300937       0.9622       0.0036
+PreconLBFGS:   1  12:38:26    -1299.491560       0.6509       0.0186
+PreconLBFGS:   2  12:38:26    -1299.924097       0.5301       0.0079
+PreconLBFGS:   3  12:38:26    -1300.088052       0.3311       0.0133
+PreconLBFGS:   4  12:38:26    -1300.128339       0.3749       0.0243
+PreconLBFGS:   5  12:38:26    -1300.137535       0.4166       0.0269
+PreconLBFGS:   6  12:38:26    -1300.179236       0.4703       0.0262
+PreconLBFGS:   7  12:38:26    -1300.301072       0.2924       0.0185
+PreconLBFGS:   8  12:38:26    -1300.385822       0.1268       0.0059
+PreconLBFGS:   9  12:38:26    -1300.396082       0.0580       0.0032
+PreconLBFGS:  10  12:38:26    -1300.399546       0.0194       0.0006
+PreconLBFGS:  11  12:38:26    -1300.399878       0.0057       0.0002
+symmetry at end of relaxation at default tol 1e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 113 , international (Hermann-Mauguin) P-42_1m , Hall  P -4 2ab
+robust_minim relax_configs LBFGS finished in  12 iters, max 20
+RSS completed minimization
+relax_config symmetry before refinement at default tol 1.0e-6
+ase.spacegroup.symmetrize: prec 1e-06 got symmetry group number 18 , international (Hermann-Mauguin) P2_12_12 , Hall  P 2 2ab
+relax_config trying to maintain symmetry
+ SD2: i 0 E -3125.3354165077176 f 49.15609393570225 s 617.9355943069068  alpha 0.0001 False
+ SD2: i 1 E -3168.2318257558536 f 34.688154305394924 s 493.62132609262943  alpha 0.00048329436632547565 False
+Traceback (most recent call last):
+  File "/home/eng/phrffk/testing-framework/scripts/run-model-test.py", line 139, in <module>
+    import test  # import and run the current test
+  File "/home/eng/phrffk/testing-framework/tests/Si/RSS/test.py", line 4, in <module>
+    properties = do_RSS(os.path.join(os.path.abspath(os.path.dirname(__file__)),'random_structs.extxyz'),':400:2')
+  File "/home/eng/phrffk/testing-framework/scripts/../share/RSS.py", line 16, in do_RSS
+    robust_minim_cell_pos(at, tol, "RSS_%04d" % i_config)
+  File "/home/eng/phrffk/testing-framework/scripts/../share/utilities.py", line 343, in robust_minim_cell_pos
+    relax_config(atoms, relax_pos=True, relax_cell=True, tol=sd2_tol, max_steps=max_sd2_iter,
+  File "/home/eng/phrffk/testing-framework/scripts/../share/utilities.py", line 213, in relax_config
+    (traj, run_stat) = sd2_run("", atoms_cell, tol, lambda i : sd2_converged(i, atoms_cell, tol), max_steps)
+  File "/home/eng/phrffk/testing-framework/scripts/../share/utilities.py", line 76, in sd2_run
+    config_minim.set_positions(x)
+  File "/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/constraints.py", line 2611, in set_positions
+    UnitCellFilter.set_positions(self, new2, **kwargs)
+  File "/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/constraints.py", line 2407, in set_positions
+    self.atoms.set_cell(self.orig_cell @ new_deform_grad.T,
+  File "/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/atoms.py", line 382, in set_cell
+    constraint.adjust_cell(self, cell)
+  File "/home/eng/phrffk/PythonVirtualEnvs/python310acelammpsvenv/lib/python3.10/site-packages/ase/spacegroup/symmetrize.py", line 213, in adjust_cell
+    raise RuntimeError('FixSymmetry adjust_cell does not work properly'
+RuntimeError: FixSymmetry adjust_cell does not work properly with large deformation gradient step 0.2694254620182197 > 0.25
