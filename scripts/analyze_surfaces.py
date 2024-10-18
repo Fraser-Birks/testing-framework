@@ -50,6 +50,8 @@ for model_name in models:
         l_base = "{:.4f}".format(data[model_name][test_name]["Ef"])
         l = l_base
         dmus = data[model_name][test_name]["dmu"]
+        if type(dmus) == float:
+            dmus = None
         if dmus is not None and any([dmus[mu_Z] != 0.0 for mu_Z in dmus]): # multi component
             mu_contrib_min_total = 0.0
             mu_contrib_max_total = 0.0
